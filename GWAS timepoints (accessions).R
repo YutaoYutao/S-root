@@ -362,4 +362,27 @@ p <- ggplot(Summary_main[grep("49",Summary_main$timeCategory),], aes(x=Genotype,
 p  + geom_point(size = 3.5) + xlab("accessions") + ylab("GR 15hrs") +
   geom_errorbar(aes(ymin= GR- SE_GR, ymax=GR+SE_GR, width=0.4))
 
+#nodeDirectionAv
+  p <- ggplot(Summary_main[grep("Col",Summary_main$Genotype),], aes(x=timeCategory*20/60, y=(DirAv*-1), colour = Treatment))
+  p  + geom_point(size = 0.1) + xlab("hours after start treatment") + ylab("Col0 nodeDirectionAv") + xlim(0,24) +geom_line(aes(group=Treatment))+
+    geom_errorbar(aes(ymin= (DirAv*-1)- SE_DirAv, ymax=(DirAv*-1)+SE_DirAv, width=.1))
 
+  #nodeDirection10
+  p <- ggplot(Summary_main[grep("Col",Summary_main$Genotype),], aes(x=timeCategory*20/60, y=(Dir10*-1), colour = Treatment))
+  p  + geom_point(size = 0.1) + xlab("hours after start treatment") + ylab("Col0 nodeDirection10") + xlim(0,24) +geom_line(aes(group=Treatment))+
+    geom_errorbar(aes(ymin= (Dir10*-1)- SE_Dir10, ymax=(Dir10*-1)+SE_Dir10, width=.1))
+
+  #nodeDirection5
+  p <- ggplot(Summary_main[grep("Col",Summary_main$Genotype),], aes(x=timeCategory*20/60, y=(Dir5*-1), colour = Treatment))
+  p  + geom_point(size = 0.1) + xlab("hours after start treatment") + ylab("Col0 nodeDirection5") + xlim(0,24) +geom_line(aes(group=Treatment))+
+    geom_errorbar(aes(ymin= (Dir5*-1)- SE_Dir5, ymax=(Dir5*-1)+SE_Dir5, width=.1))
+
+  #nodeDirAvDiff
+  p <- ggplot(Summary_main[grep("Col",Summary_main$Genotype),], aes(x=timeCategory*20/60, y=(DirAvdiff), colour = Treatment))
+  p  + geom_point(size = 0.1) + xlab("hours after start treatment") + ylab("Col0 nodeDirAv Change") + xlim(0,24) +geom_line(aes(group=Treatment))+
+    geom_errorbar(aes(ymin= (DirAvdiff)- SE_DirAvdiff, ymax=(DirAvdiff)+SE_DirAvdiff, width=.1))
+
+  #Elongation
+  p <- ggplot(Summary_main[grep("Col",Summary_main$Genotype),], aes(x=timeCategory*20/60, y=GR, colour = Treatment))
+  p  + geom_point(size = 0.1) + xlab("hours after start treatment") + ylab("Col0 Growth rate") + xlim(0,24) +geom_line(aes(group=Treatment))+
+    geom_errorbar(aes(ymin= GR- SE_GR, ymax=GR+ SE_GR, width=.1))
